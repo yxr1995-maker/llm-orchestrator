@@ -1,11 +1,11 @@
-# llm-gateway 镜像
-# 构建：docker build -t llm-gateway .
+# llm-orchestrator 镜像
+# 构建：docker build -t llm-orchestrator .
 # 运行（挂载配置文件与数据目录，详见 README.md）：
-#   docker run -d --name llm-gateway \
+#   docker run -d --name llm-orchestrator \
 #     -p 8080:8080 \
 #     -v $(pwd)/config.yaml:/app/config.yaml \
 #     -v $(pwd)/data:/app/data \
-#     llm-gateway
+#     llm-orchestrator
 FROM python:3.11-slim
 
 ENV PYTHONUNBUFFERED=1 \

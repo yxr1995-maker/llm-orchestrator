@@ -58,7 +58,7 @@ def main():
         print("  usage      :", resp.get("usage"))
         log = open(LOG).read()
         rlines = [l for l in log.splitlines() if "difficulty-router" in l]
-        print("  路由日志    :", rlines[-1].split("llm-gateway.cascade:")[1].strip() if rlines else "(无)")
+        print("  路由日志    :", rlines[-1].split("llm-orchestrator.cascade:")[1].strip() if rlines else "(无)")
         ok = bool(rlines) and bool(resp.get("choices"))
         print("\nLIVE TEST:", "PASS ✅" if ok else "需检查 ⚠️")
     except Exception as e:

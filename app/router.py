@@ -28,7 +28,7 @@ from .moa import is_moa, moa_pipeline_name, run_moa
 from .planner_worker import is_pw, pw_name, run_planner_worker
 from .cascade import is_cascade, cascade_name, run_cascade
 
-logger = logging.getLogger("llm-gateway.router")
+logger = logging.getLogger("llm-orchestrator.router")
 
 router = APIRouter()
 

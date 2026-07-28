@@ -170,7 +170,7 @@ def build_providers(providers_cfg: dict) -> dict[str, ProviderBase]:
         except Exception:
             import logging
 
-            logging.getLogger("llm-gateway.providers").exception(
+            logging.getLogger("llm-orchestrator.providers").exception(
                 "provider failed to initialize: %s", name
             )
     return out

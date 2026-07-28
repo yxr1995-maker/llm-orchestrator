@@ -23,7 +23,7 @@ from .pool import KeyPool
 from .providers import build_providers, close_client
 from .router import router
 
-logger = logging.getLogger("llm-gateway")
+logger = logging.getLogger("llm-orchestrator")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
 DEFAULT_CONFIG_PATH = "./config.yaml"
@@ -150,7 +150,7 @@ def create_app(config_path: str | None = None) -> FastAPI:
             pass
         await close_client()
 
-    app = FastAPI(title="llm-gateway", version="0.1.0", lifespan=lifespan)
+    app = FastAPI(title="llm-orchestrator", version="0.1.0", lifespan=lifespan)
     app.state.config = config
     app.state.master_key = config.master_key  # for admin etc. to authenticate against
     app.state.pool = KeyPool()

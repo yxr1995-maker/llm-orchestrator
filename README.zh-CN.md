@@ -1,4 +1,4 @@
-# llm-gateway
+# llm-orchestrator
 
 > 自托管 OpenAI 兼容 LLM 网关：聚合多家服务商（OpenAI / Anthropic / Gemini / DeepSeek 及任意 OpenAI 兼容服务），统一一个 API，支持模型别名、密钥池故障转移、用量统计、限流、内置控制台，并带 MOA 与 planner-worker 流水线（含多模态：视觉 / 生图 / 生视频）。
 
@@ -207,13 +207,13 @@ cascade:
 ## Docker
 
 ```bash
-docker build -t llm-gateway .
+docker build -t llm-orchestrator .
 
-docker run -d --name llm-gateway \
+docker run -d --name llm-orchestrator \
   -p 8080:8080 \
   -v $(pwd)/config.yaml:/app/config.yaml \
   -v $(pwd)/data:/app/data \
-  llm-gateway
+  llm-orchestrator
 ```
 
 - `/app/config.yaml`：配置文件（**必需**，挂载后改配置同样热生效）
@@ -233,7 +233,7 @@ docker run -d --name llm-gateway \
 
 用 launchd 注册为用户服务，开机自启 + 崩溃自动拉起。见 [`contrib/macos/README.md`](contrib/macos/README.md)。
 
-> ⚠️ macOS TCC 会阻止 launchd 执行 `~/Documents`、`~/Desktop`、`~/Downloads` 下的程序（报 `Operation not permitted`），请把仓库放在其他位置（如 `~/llm-gateway`）。
+> ⚠️ macOS TCC 会阻止 launchd 执行 `~/Documents`、`~/Desktop`、`~/Downloads` 下的程序（报 `Operation not permitted`），请把仓库放在其他位置（如 `~/llm-orchestrator`）。
 
 ## 常见上游 base_url 速查表
 

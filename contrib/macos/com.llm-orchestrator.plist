@@ -3,22 +3,22 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.llm-gateway</string>
+    <string>com.llm-orchestrator</string>
     <!-- Note: macOS TCC blocks launchd from executing programs under ~/Documents, ~/Desktop, ~/Downloads
-         place the repo elsewhere (e.g. ~/llm-gateway) and update the paths accordingly. -->
+         place the repo elsewhere (e.g. ~/llm-orchestrator) and update the paths accordingly. -->
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/YOUR_NAME/llm-gateway/contrib/macos/run_gateway.sh</string>
+        <string>/Users/YOUR_NAME/llm-orchestrator/contrib/macos/run_gateway.sh</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/Users/YOUR_NAME/llm-gateway/data/gateway.out.log</string>
+    <string>/Users/YOUR_NAME/llm-orchestrator/data/gateway.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/YOUR_NAME/llm-gateway/data/gateway.err.log</string>
+    <string>/Users/YOUR_NAME/llm-orchestrator/data/gateway.err.log</string>
     <key>WorkingDirectory</key>
-    <string>/Users/YOUR_NAME/llm-gateway</string>
+    <string>/Users/YOUR_NAME/llm-orchestrator</string>
 </dict>
 </plist>

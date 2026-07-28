@@ -4,3 +4,6 @@ data/
 __pycache__/
 *.pyc
 *.log
+
+.DS_Store
+llm-orchestration-papers/

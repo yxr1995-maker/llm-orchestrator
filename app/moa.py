@@ -38,7 +38,7 @@ import httpx
 from . import cache as _cache
 from .providers import UpstreamError, parse_retry_after
 
-logger = logging.getLogger("llm-gateway.moa")
+logger = logging.getLogger("llm-orchestrator.moa")
 
 DEFAULT_AGG_PROMPT = (
     "You are the lead AI assistant. Several assistant models have answered the same "

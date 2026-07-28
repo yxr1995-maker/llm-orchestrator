@@ -1,4 +1,4 @@
-# llm-gateway
+# llm-orchestrator
 
 > A self-hosted, OpenAI-compatible LLM gateway. Aggregate multiple providers (OpenAI / Anthropic / Gemini / DeepSeek / any OpenAI-compatible service) behind one API with model aliases, a key pool with automatic failover, usage stats, rate limiting, a built-in admin console, plus Mixture-of-Agents and planner-worker pipelines (incl. multimodal: vision / image-gen / video-gen).
 
@@ -209,13 +209,13 @@ Admin API (require `Authorization: Bearer <master_key>` when auth is on):
 ## Docker
 
 ```bash
-docker build -t llm-gateway .
+docker build -t llm-orchestrator .
 
-docker run -d --name llm-gateway \
+docker run -d --name llm-orchestrator \
   -p 8080:8080 \
   -v $(pwd)/config.yaml:/app/config.yaml \
   -v $(pwd)/data:/app/data \
-  llm-gateway
+  llm-orchestrator
 ```
 
 - `/app/config.yaml`: config file (**required**; mounted changes hot-reload too)
@@ -235,7 +235,7 @@ Expect `=== 47/47 passed ===`. The mock simulates openai_like / anthropic / gemi
 
 Register the gateway as a launchd user agent for auto-start + crash recovery. See [`contrib/macos/README.md`](contrib/macos/README.md).
 
-> ⚠️ macOS TCC blocks launchd from executing programs under `~/Documents`, `~/Desktop`, `~/Downloads` (reporting `Operation not permitted`). Place the repo elsewhere (e.g. `~/llm-gateway`).
+> ⚠️ macOS TCC blocks launchd from executing programs under `~/Documents`, `~/Desktop`, `~/Downloads` (reporting `Operation not permitted`). Place the repo elsewhere (e.g. `~/llm-orchestrator`).
 
 ## Upstream base_url cheat sheet
 

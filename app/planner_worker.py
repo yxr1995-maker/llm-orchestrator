@@ -28,7 +28,7 @@ import httpx
 
 from .moa import _call_chat, _compress, _effective_effort, _extract_text, _last_user_input
 
-logger = logging.getLogger("llm-gateway.planner_worker")
+logger = logging.getLogger("llm-orchestrator.planner_worker")
 
 _DECOMPOSE_PROMPT = (
     "You are the planner. Decompose the user's task into independent subtasks that "

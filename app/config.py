@@ -14,7 +14,7 @@ from pathlib import Path
 
 import yaml
 
-logger = logging.getLogger("llm-gateway.config")
+logger = logging.getLogger("llm-orchestrator.config")
 
 # Fallback empty config when the config file is missing / fails to parse
 _EMPTY: dict = {"server": {}, "providers": {}, "aliases": {}, "rate_limit": {}}

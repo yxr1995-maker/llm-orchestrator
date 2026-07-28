@@ -20,11 +20,11 @@ import re
 import shutil
 from pathlib import Path
 
-MARKER_START = "# >>> llm-gateway proxy (auto-injected; restore: python -m app.codex_inject restore)"
-MARKER_END = "# <<< llm-gateway proxy"
-DEFAULT_PROVIDER = "llm-gateway"
+MARKER_START = "# >>> llm-orchestrator proxy (auto-injected; restore: python -m app.codex_inject restore)"
+MARKER_END = "# <<< llm-orchestrator proxy"
+DEFAULT_PROVIDER = "llm-orchestrator"
 DEFAULT_NAME = "LLM Gateway"
-BACKUP_SUFFIX = ".llm-gateway-bak"
+BACKUP_SUFFIX = ".llm-orchestrator-bak"
 
 _ROOT_MODEL_PROVIDER_RE = re.compile(r"^[ \t]*model_provider[ \t]*=", re.MULTILINE)
 

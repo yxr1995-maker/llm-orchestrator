@@ -1,5 +1,5 @@
 # =====================================================================
-# llm-gateway example config
+# llm-orchestrator example config
 # Usage: cp config.example.yaml config.yaml, then edit as needed
 # config hot-reloads: changes take effect on save, no restart needed
 # =====================================================================

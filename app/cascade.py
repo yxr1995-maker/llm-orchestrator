@@ -33,7 +33,7 @@ import httpx
 
 from .moa import _call_chat, _chat_dict, _effective_effort, _extract_text, _last_user_input
 
-logger = logging.getLogger("llm-gateway.cascade")
+logger = logging.getLogger("llm-orchestrator.cascade")
 
 _DEFAULT_EFFORT_MAP = {"none": 0, "low": 0, "minimal": 0, "medium": 1, "high": 2, "very_high": 2}
 

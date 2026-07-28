@@ -35,7 +35,7 @@ import logging
 import re
 from dataclasses import dataclass
 
-logger = logging.getLogger("llm-gateway.difficulty_router")
+logger = logging.getLogger("llm-orchestrator.difficulty_router")
 
 # Default tier roster (matches your real providers/aliases). Override via config.
 DEFAULT_TIERS = [

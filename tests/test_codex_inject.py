@@ -43,9 +43,9 @@ def test_inject_swaps_provider_and_preserves_rest():
         r = ci.inject(p, "http://127.0.0.1:8080/v1")
         check("inject ok", r["ok"] and r["backed_up"], r)
         t = p.read_bytes().decode("utf-8")
-        check("model_provider -> llm-gateway", 'model_provider = "llm-gateway"' in t, t.splitlines()[0])
+        check("model_provider -> llm-orchestrator", 'model_provider = "llm-orchestrator"' in t, t.splitlines()[0])
         check("old custom provider table kept", "[model_providers.custom]" in t)
-        check("new gateway table added", "[model_providers.llm-gateway]" in t)
+        check("new gateway table added", "[model_providers.llm-orchestrator]" in t)
         check("base_url = 8080", 'base_url = "http://127.0.0.1:8080/v1"' in t)
         check("wire_api responses", 'wire_api = "responses"' in t)
         check("marker present", ci.MARKER_START in t)
@@ -63,7 +63,7 @@ def test_idempotent_reinject_no_duplicates():
         check("reinject not backed_up again", r["backed_up"] is False, r)
         t = p.read_bytes().decode("utf-8")
         check("single model_provider after reinject", t.count("model_provider = ") == 1)
-        check("single gateway table", t.count("[model_providers.llm-gateway]") == 1)
+        check("single gateway table", t.count("[model_providers.llm-orchestrator]") == 1)
         check("base_url refreshed to 9090", 'base_url = "http://127.0.0.1:9090/v1"' in t)
         check("single marker pair", t.count(ci.MARKER_START) == 2)
 
@@ -78,7 +78,7 @@ def test_restore_from_backup():
         check("restored model_provider=custom", 'model_provider = "custom"' in t, t.splitlines()[0])
         check("restored base_url=15721", 'base_url = "http://127.0.0.1:15721/v1"' in t)
         check("no gateway markers after restore", ci.MARKER_START not in t)
-        check("no gateway table after restore", "[model_providers.llm-gateway]" not in t)
+        check("no gateway table after restore", "[model_providers.llm-orchestrator]" not in t)
 
 
 def test_status():
@@ -90,7 +90,7 @@ def test_status():
         s1 = ci.status(p)
         check("status injected", s1["injected"] is True, s1)
         check("status base_url", s1["base_url"] == "http://127.0.0.1:8080/v1", s1)
-        check("status provider", s1["provider"] == "llm-gateway", s1)
+        check("status provider", s1["provider"] == "llm-orchestrator", s1)
         check("status backup exists", s1["backup_exists"] is True, s1)
 
 
@@ -109,8 +109,8 @@ def test_inject_on_missing_config_creates_it():
         r = ci.inject(p, "http://127.0.0.1:8080/v1")
         check("inject on missing ok", r["ok"] and r["backed_up"] is False, r)
         t = p.read_bytes().decode("utf-8")
-        check("created with model_provider", 'model_provider = "llm-gateway"' in t)
-        check("created with table", "[model_providers.llm-gateway]" in t)
+        check("created with model_provider", 'model_provider = "llm-orchestrator"' in t)
+        check("created with table", "[model_providers.llm-orchestrator]" in t)
 
 
 def main():
